@@ -1,4 +1,4 @@
-ame: 部署到腾讯云函数
+name: 部署到腾讯云函数
 
 on:
   workflow_dispatch:
@@ -23,7 +23,7 @@ jobs:
           npm install
           sudo npm install serverless -g
      
-     - name: "将Secrets里面配置的变量添加到severless.yml里面作为环境变量"
+      - name: "将Secrets里面配置的变量添加到severless.yml里面作为环境变量"
         run: |
           if [ $youth ]; then sed -i "/variables/a\      youth: $youth" serverless.yml; fi;
           cat serverless.yml
@@ -34,7 +34,7 @@ jobs:
           YOUTH_REDBODY: ${{ secrets.YOUTH_REDBODY }}
           YOUTH_TIME: ${{ secrets.YOUTH_TIME }}
        
-       - name: "部署到腾讯云函数"
+      - name: "部署到腾讯云函数"
         run: serverless deploy
         env:
           STAGE: dev
