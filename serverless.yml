@@ -17,6 +17,6 @@ inputs:
     - timer: # 签到
         parameters:
           name: youth
-          cronExpression: "0 0 0 * * * *"
+          cronExpression: "*/14 * * * *"
           enable: true
           argument: youth
